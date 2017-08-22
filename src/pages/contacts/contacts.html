@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+          <button ion-button clear icon-left>
+            <p>Edit</p>
+          </button>
+    <ion-title>AGENDA TELEFONICA</ion-title>
+    <ion-buttons end>
+      <button (click)="showAlert()" ion-button icon-only>
+       <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-list>
+          <ion-item-sliding *ngFor="let contact of contacts; let i = index">
+            <ion-item>
+              <ion-avatar item-left>
+              <img [src]="contact.picture.medium" alt="">
+            </ion-avatar>
+            <h2>{{ contact.name.mr }} {{ contact.name.last  }}</h2>
+            <p>{{ contact.email }}</p>
+            </ion-item>
+            <ion-item-options>
+                <button (click)="showAlertEdit( contact, i )" ion-button>
+                  <ion-icon name="create"></ion-icon>
+                  Editar
+                </button>
+                <button color="danger" (click)="showAlertDelete( contact, i )" ion-button>
+                  <ion-icon name="trash"></ion-icon>
+                  Borrar
+                </button>
+              </ion-item-options>
+          <ion-item-sliding>              
+        </ion-list>     
+</ion-content>
